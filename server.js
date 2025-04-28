@@ -1,5 +1,11 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
+dotenv.config();
+
+const sheetRoutes = require('./Routes/SheetRoutes');
+
+app.use('/read', sheetRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello yahia');
