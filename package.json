@@ -1,10 +1,10 @@
 {
   "name": "express_backen_vercel",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon api/sheet/read.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express_backen_vercel": "file:",
     "googleapis": "^148.0.0"

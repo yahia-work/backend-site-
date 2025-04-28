@@ -1,5 +1,6 @@
 const { google } = require('googleapis');
 const path = require('path');
+require('dotenv').config();
 
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
 
