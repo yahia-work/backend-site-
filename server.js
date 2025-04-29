@@ -1,21 +1,26 @@
-const dotenv = require('dotenv');
 const express = require('express');
-const app = express();
-const { ReadSheet } = require('./Services/ReadSheet');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
 dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-const sheetRoutes = require('./Routes/SheetRoutes');
-
-app.use('/read', sheetRoutes);
-
-app.get('/', (req, res) => {
-  res.send('Hello yahia');
+// Exemple de route
+app.get('/users', (req, res) => {
+  res.json({ message: 'Bienvenue sur l\'API des utilisateurs' });
 });
 
-app.get('/verceltest', (req, res) => {
-    res.send('Hello Vercel from Express!');
-});
-
-module.exports = app;
+// Si on est en mode serverless sur Vercel
+if (process.env.VERCEL) {
+  module.exports = app; // Exporter l'application pour Vercel
+} else {
+  app.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`);
+  });
+}
