@@ -5,7 +5,7 @@ const { ReadSheet } = require('../Services/ReadSheet');
 // Lire les données
 router.get('/', async (req, res) => {
   try {
-    const data = await ReadSheet("code wilayas",{});
+    const data = await ReadSheet("commandes",{});
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
