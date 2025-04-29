@@ -3,7 +3,7 @@ const router = express.Router();
 const { ReadSheet } = require('../Services/ReadSheet');
 
 // Lire les données
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const data = await ReadSheet("code wilayas",{});
     res.json(data);
@@ -11,6 +11,5 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
 
 module.exports = router;
